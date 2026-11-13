@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/Faker523/web-service/app"
 	"github.com/gin-gonic/gin"
 )
 
@@ -81,6 +82,7 @@ func deleteAlbumById(c *gin.Context) {
 
 func main() {
 	router := gin.Default()
+	router.GET("/healthz", app.Health)
 	router.GET("/album", getAlbums)
 	router.POST("/album", createAlbums)
 	router.GET("/album/:id", getAlbumById)
